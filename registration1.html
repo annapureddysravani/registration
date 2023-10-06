@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media(max-width:901px){
+            h2{
+    font-size: 10px;
+}
+    .form-container{
+    max-width: 50px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e9c96;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(146, 16, 16, 0.2);
+    
+    
+}.form-box{
+    max-width: 90%;
+
+}
+
+
+}
+        /* Style for form container */
+    .form-container{
+
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 20px;
+    background-color: #68e8ec;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(167, 25, 25, 0.2);
+    border-color: #ecf7f6;
+    border-style: solid;
+}
+
+/* Style for form labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style for form input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style for validation error messages */
+.validation-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Style for form submit button */
+input[type="submit"] {
+    background-color: #0074d9;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* Style for form submit button on hover */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    
+}
+    
+.form-box{
+    position: relative;
+    width: 390px;
+    height: 400px;
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    
+
+}
+body{
+    background-image: url("");
+
+}
+
+
+    </style>
+
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+    <form id="registration" action="">
+        <h2>REGISTRATION FROM</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password"
+        ￼Register id="confirmPassword" name="confirmPassword" required>
+        <div id="validationMessage" class="validation-error"></div>
+        <br>
+        <input type="submit" class=".btn" value="Register">
+    </form>
+    </div>
+    </div>
+    <script>
+        document.getElementById('registration').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var username = document.getElementById('username').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+    var validationMessage = document.getElementById('validationMessage');
+
+    // Username validation
+    if (username.length < 5) {
+        validationMessage.innerHTML = 'Username must be at least 5 characters.';
+        return;
+    }
+
+    // Email validation
+    if (!isValidEmail(email)) {
+        validationMessage.innerHTML = 'Invalid email address.';
+        return;
+    }
+
+    // Password validation
+    if (password.length < 8) {
+        validationMessage.innerHTML = 'Password must be at least 8 characters.';
+        return;
+    }
+
+    // Confirm password validation
+    if (password !== confirmPassword) {
+        validationMessage.innerHTML = 'Passwords do not match.';
+        return;
+    }
+
+    // If all validations pass, you can submit the form or take further action.
+    // In this example, we'll just display a success message.
+    validationMessage.innerHTML = ''; // Clear any previous error message
+    alert('Registration successful!');
+});
+
+// Function to validate email format
+function isValidEmail(email) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+    </script>
+</body>
+</html>
